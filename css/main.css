@@ -289,7 +289,7 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     }
 
     .conteiner {
-        margin: 20px 4%;
+        margin: 0 1%;
     }
 
     nav ul .searchClick{
@@ -331,7 +331,7 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     }
 
     .card-conteiner .card .card-img img {
-        max-width: 330px;
+        max-width: 350px;
     }
 
     .card-conteiner .card .card-img button>i {
