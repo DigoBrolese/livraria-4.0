@@ -106,7 +106,7 @@ function makeBooksRow(books, title) {
                                             '</div> ' +
                                             '<div class="card-content"> ' +
                                                 '<p class="shrinkText">'+ book.title +'</p> ' +
-                                                '<em>'+ book.authors[0] +'</em> ' +
+                                                '<p>'+ book.authors[0] +'</p> ' +
                                             '</div> ' +
                                         '</div>';
         });

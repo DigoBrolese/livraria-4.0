@@ -228,15 +228,15 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 180px;
+    width: 96%;
 }
 
-.card-conteiner .card .card-content em {
+.card-conteiner .card .card-content p:last-of-type {
     font-size: 14px;
     font-style: normal;
     white-space: nowrap;
     overflow: hidden;
-    width: 180px;
+    width: 96%;
     text-overflow: ellipsis;
 }
 
