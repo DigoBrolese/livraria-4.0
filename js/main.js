@@ -25,7 +25,7 @@ window.addEventListener('load', function () {
 
     let currentUrlParam = window.location.search;
 
-    if (domainFull[4] !== 'detalhesLivro.html') {
+    if ((domainFull[4].split('?'))[0] !== 'detalhesLivro.html') {
 
         if (currentUrlParam.length > 0) {
             document.querySelector('.conteiner-row').style.display = 'none';

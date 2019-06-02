@@ -103,7 +103,6 @@
     margin: 9px 0;
 }
 
-
 .card-content-purchase em {
     font-style: normal;
     display: block;
@@ -130,6 +129,10 @@
 .card-content-purchase .calcularFrete > form > div{
     display: flex;
     flex-direction: column;
+}
+
+.card-content-purchase .calcularFrete > .valorFrete {
+    margin-top: 10px;
 }
 
 .card-content-purchase .calcularFrete > .valorFrete > p {

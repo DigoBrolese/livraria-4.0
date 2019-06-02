@@ -1,9 +1,3 @@
-document.querySelector('.btn-calcular-frete').addEventListener('click', function (e) {
-   let cepDestino = document.querySelector('#campoCalcularFrete').value;
-   let precoLivro = document.querySelector('#precoLivro').value;
-   calculaFrete('41106', '88720000', '88701040',  '79.90');
-});
-
 document.querySelector('.formMenuConteiner').addEventListener('submit', function (e) {
     e.preventDefault();
     let search = document.querySelector('#searchInput').value;
@@ -101,20 +95,17 @@ function makeBook(book) {
     '</div>';
 }
 
-function calculaFrete(servico, cepOrigem, cepDestino, valorDeclarado) {
+setTimeout(function () {
+    document.querySelector('.btn-calcular-frete').addEventListener('click', function (e) {
+       let cepDestino = document.querySelector('#campoCalcularFrete').value;
+       let precoLivro = document.querySelector('#precoLivro').value;
+       calculaFrete();
+    });
+}, 1000);
 
+
+function calculaFrete() {
     document.querySelector('.valorFrete').innerHTML = ""
                                                     +"<p><b>Sedex: </b>R$ 79,90 </p>"
                                                     +"<p><b>PAC: </b>R$ 39,95</p>";
-
-    // let url = 'http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx?nCdEmpresa=&sDsSenha=&sCepOrigem='+ cepOrigem +'&sCepDestino='+ cepDestino +'&nVlPeso=5&nCdFormato=1&nVlComprimento=20&nVlAltura=5&nVlLargura=15&sCdMaoPropria=&nVlValorDeclarado='+ valorDeclarado +'&sCdAvisoRecebimento=&nCdServico='+ servico +'&nVlDiametro=0&StrRetorno=xml';
-    //
-    // ajax.addEventListener('load', function () {
-    //     console.log(JSON.parse(this.responseText));
-    // });
-    // ajax.open('POST' ,url, true);
-    // ajax.withCredentials = true;
-    // ajax.setRequestHeader('Content-Type', 'text/plain');
-    //
-    // ajax.send();
 }
