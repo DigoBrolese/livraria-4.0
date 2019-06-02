@@ -25,7 +25,7 @@
                     <form action="" method="get" class="formMenuConteiner">
                         <i class="material-icons lineHeigthZero searchClick">search</i>
                         <input type="text" placeholder="Pesquisar" name="search" id="searchInput" required>
-                        <button type="submit" hidden></button>
+                        <button type="submit" class="btn-search" hidden><i class="material-icons">arrow_forward</i></button>
                     </form>
                 </li>
             </ul>
@@ -64,13 +64,11 @@
                         <div>
                             <label for="campoCalcularFrete">Calcular Frete</label>
                             <input id="campoCalcularFrete" type="text" placeholder="CEP">
+                            <input type="hidden" value="79.90" id="precoLivro">
                         </div>
-                        <button type="button" class="btn btn-secundary">Calcular</button>
+                        <button type="button" class="btn btn-secundary btn-calcular-frete">Calcular</button>
                     </form>
-                    <div class="valorFrete">
-                        <p><b>Sedex: </b>R$ 79,90 </p>
-                        <p><b>PAC: </b>R$ 39,95</p>
-                    </div>
+                    <div class="valorFrete"></div>
                 </div>
                 <div class="group-button-purchase">
                     <button type="button" class="btn btn-secundary"><i class="material-icons">add_shopping_cart</i>Adicionar no carrinho</button>

@@ -22,6 +22,7 @@ html                { font-family: 'Roboto', sans-serif; color: #212121; backgro
     display: flex;
     align-items: center;
     cursor: pointer;
+    user-select: none;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
@@ -69,11 +70,24 @@ nav ul .formMenuConteiner{
     border-radius: 4px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: rgba(255, 255, 255, 0.15);
 }
 
 nav ul .searchMenu{ width: 100%; }
 nav ul .searchClick{ color: #F5F5F5; margin: 0 10px; }
+nav ul .btn-search{
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 0;
+    padding: 5px 8px;
+    cursor: pointer;
+    color: #F5F5F5;
+}
+
+nav ul .btn-search > i{
+    font-size: 14px;
+    margin-top: 6px;
+}
 
 nav ul .formMenuConteiner input {
     font-size: 14px;
@@ -82,6 +96,7 @@ nav ul .formMenuConteiner input {
     width: 81%;
     height: 20px;
     border: none;
+    flex-grow: 1;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -95,18 +110,24 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     background-color: #FFF;
 }
 
-.conteiner .head-data {
+.conteiner > .conteiner-row .head-data {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.conteiner .head-data .btn-see-more {
+.conteiner > .conteiner-row .head-data .btn-see-more {
     height: 28px;
     line-height: 29px;
 }
 
+.conteiner-row:first-of-type {
+    margin-top: 0 !important;
+}
+.conteiner-row {
+    margin-top: 20px;
+}
 
 .card-conteiner {
     display: flex;
@@ -135,6 +156,10 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     bottom: 3px;
 }
 
+.card-conteiner .card:first-of-type {
+    margin-left: .2rem;
+}
+
 .card-conteiner .card:last-of-type {
     margin-right: .1rem;
 }
@@ -147,19 +172,26 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     right: 0;
     top: 0;
     bottom: 0;
-    width: 100%;
+    width: 200px;
+    height: 284px;
     border-radius: 4px 4px 0 0;
+    user-select: none;
+    cursor: pointer;
 }
 
 .card-conteiner .card .card-img span {
     font-size: 20px;
     font-weight: 300;
-    color: #F5F5F5;
+    color: #212121;
     position: absolute;
     bottom: 0;
     left: 0;
     max-width: 100%;
-    margin: 24px 24px 65px 12px;
+    padding: 5px 12px 5px 12px;
+    margin: 24px 24px 65px 0;
+    background-color: #FFF;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
 .card-conteiner .card .card-img button {
@@ -176,6 +208,7 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     max-width: 100%;
     margin: 24px 0 40px 150px;
     background-color: #EA5555;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
 .card-conteiner .card .card-img button>i {
@@ -191,9 +224,37 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     padding: 10px;
 }
 
+.card-conteiner .card .card-content p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 180px;
+}
+
 .card-conteiner .card .card-content em {
     font-size: 14px;
     font-style: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 180px;
+    text-overflow: ellipsis;
+}
+
+.card-conteiner .card-nenhum-livro {
+    position: relative;
+    margin: .5rem 1rem 1rem 0.5rem;
+    background-color: #FFFFFF;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    width: 100%;
+    height: 114px;
+}
+
+.card-conteiner .card-nenhum-livro > p {
+    font-size: 26px;
+    text-align: center;
+    margin-top: 40px;
 }
 
 .block-with-text {
@@ -302,6 +363,14 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
 @media only screen and (max-width: 620px) {
     .hedder             { position: inherit; top: inherit; }
     .siteTitle { display: none; }
+
+    .btn {
+        padding: 0 5px;
+    }
+
+    .btn > span {
+        display: none;
+    }
     nav ul .removeHover{
         padding-right: 0;
     }
@@ -315,8 +384,21 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
         display: none;
     }
 
+    nav ul .btn-search {
+        /*display: none;*/
+        padding: 4px 8px;
+    }
+
+    nav ul .btn-search > i {
+        margin-top: 3px;
+    }
+
     .card-conteiner .card {
-        min-width: 63%;
+        min-width: 98%;
+    }
+
+    .conteiner-row {
+        margin-top: 20px;
     }
 
     .card-conteiner .card .card-img span {
@@ -331,7 +413,9 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     }
 
     .card-conteiner .card .card-img img {
-        max-width: 350px;
+        width: 351px;
+        height: 500px;
+        max-width: 100%;
     }
 
     .card-conteiner .card .card-img button>i {
@@ -346,6 +430,11 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
         font-size: 20px;
     }
 
+    .card-conteiner .card-nenhum-livro > p {
+        font-size: 26px;
+        text-align: center;
+        margin-top: 20px;
+    }
 
     .footer .footer-content {
         flex-direction: column;
@@ -365,13 +454,16 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     }
 }
 
-@media only screen and (max-width: 414px) {
-    .card-conteiner .card {
-        min-width: 96%;
+
+@media only screen and (max-width: 425px) {
+
+    .card-conteiner .card .card-img img {
+        width: 371px;
     }
 }
 
 @media only screen and (max-width: 320px) {
+
     .card-conteiner .card .card-img span {
         font-size: 24px;
         margin-bottom: 70px;
@@ -384,7 +476,7 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     }
 
     .card-conteiner .card .card-img img {
-        max-width: 330px;
+        height: 400px;
     }
 
     .card-conteiner .card .card-img button>i {
@@ -398,4 +490,6 @@ nav ul .formMenuConteiner input::placeholder { color: #F5F5F5; }
     .card-conteiner .card .card-content em {
         font-size: 18px;
     }
+
+
 }
