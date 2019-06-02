@@ -21,10 +21,12 @@ window.addEventListener('load', function () {
         ajax.addEventListener('load', function(){
             let book = JSON.parse(this.responseText);
             makeBook(book.items[0]);
+            events();
         });
         ajax.open("GET", url+query);
         ajax.send();
     } else {
+        events();
         return false;
     }
 });
@@ -95,17 +97,19 @@ function makeBook(book) {
     '</div>';
 }
 
-setTimeout(function () {
+function events(){
     document.querySelector('.btn-calcular-frete').addEventListener('click', function (e) {
        let cepDestino = document.querySelector('#campoCalcularFrete').value;
        let precoLivro = document.querySelector('#precoLivro').value;
        calculaFrete();
     });
-}, 1000);
 
 
-function calculaFrete() {
-    document.querySelector('.valorFrete').innerHTML = ""
-                                                    +"<p><b>Sedex: </b>R$ 79,90 </p>"
-                                                    +"<p><b>PAC: </b>R$ 39,95</p>";
+    function calculaFrete() {
+        document.querySelector('.valorFrete').innerHTML = ""
+                                                        +"<p><b>Sedex: </b>R$ 79,90 </p>"
+                                                        +"<p><b>PAC: </b>R$ 39,95</p>";
+    }
+
 }
+

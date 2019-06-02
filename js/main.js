@@ -38,6 +38,7 @@ window.addEventListener('load', function () {
             ajax.addEventListener('load', function(){
                 let livros = JSON.parse(this.responseText);
                 makeBooksRow(livros, 'Pesquisar');
+                eventsMakeBooksRow();
             });
             ajax.open("GET", url+query);
             ajax.send();
@@ -60,6 +61,7 @@ window.addEventListener('load', function () {
             ajax.addEventListener('load', function(){
                 let livrosFiccao = JSON.parse(this.responseText);
                 makeBooksRow(livrosFiccao, 'Ficção');
+                eventsMakeBooksRow();
             });
             ajax.open("GET", url+query);
             ajax.send();
@@ -73,16 +75,11 @@ window.addEventListener('load', function () {
             ajax.addEventListener('load', function(){
                 let livros = JSON.parse(this.responseText);
                 makeBooksRow(livros, 'Familia e Relações');
+                eventsMakeBooksRow();
             });
             ajax.open("GET", url+query);
             ajax.send();
         }
-
-        setTimeout(function () {
-            document.querySelectorAll('.capaBook').forEach(elem => elem.addEventListener('click', function (e) {
-                window.location = domain + "/detalhesLivro.html?cod=" + e.target.dataset.isbn;
-            }));
-        },1000);
     }
 });
 
@@ -119,4 +116,10 @@ function makeBooksRow(books, title) {
     }
     row.innerHTML += '</div>';
     document.querySelector('.conteiner').innerHTML += '</div>';
+}
+
+function eventsMakeBooksRow() {
+    document.querySelectorAll('.capaBook').forEach(elem => elem.addEventListener('click', function (e) {
+        window.location = domain + "/detalhesLivro.html?cod=" + e.target.dataset.isbn;
+    }));
 }
