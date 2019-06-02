@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eLivraria</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/detalhesLivro.css">
+    <link rel="icon" href="logo.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header class="hedder">
+        <nav class="navConteiner">
+            <ul class="navMenu">
+                <li class="removeHover">
+                    <a href="index.html" class="navLogo">
+                        <img id="logo" src="logo.png" alt="logo"><span class="siteTitle">eLivraria</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navMenuSearch ">
+                <li class="searchMenu removeHover removeCursor">
+                    <form action="" method="get" class="formMenuConteiner">
+                        <i class="material-icons lineHeigthZero searchClick">search</i>
+                        <input type="text" placeholder="Pesquisar" name="search" id="searchInput" required>
+                        <button type="submit" hidden></button>
+                    </form>
+                </li>
+            </ul>
+            <ul>
+                <li><a href="#login"><i class="material-icons lineHeigthZero">account_circle</i><span class="siteTitle">Entre ou Cadastre-se</span></a></li>
+                <li><a href="#"><i class="material-icons lineHeigthZero">shopping_cart</i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="conteiner">
+        <div class="card-head-details">
+            <h2>A Guerra Dos Tronos - As Crônicas De Gelo e Fogo - Vol. 1</h2>
+            <h3>George R. R. Martin</h3>
+        </div>
+        <div class="conteiner-principal">
+            <div class="card-conteiner">
+                <div class="card-img-details">
+                    <div class="card-img">
+                        <img src="img/gameOfThrones.png" alt="livro">
+                    </div>
+                </div>
+            </div>
+            <div class="card-content-purchase">
+                <h2>Comprar</h2>
+                <div class="price">
+                    <h1>R$ 79,90
+                        <em>em 1x no crédito ou À Vista no Boleto</em>
+                    </h1>
+                    <div>
+                        <i class="material-icons iconCard">payment</i>
+                        <p>Parcelado no Cartão: R$ 79,90 em até 2x de R$ 39,95 sem juros</p>
+                    </div>
+                </div>
+                <div class="calcularFrete">
+                    <form>
+                        <div>
+                            <label for="campoCalcularFrete">Calcular Frete</label>
+                            <input id="campoCalcularFrete" type="text" placeholder="CEP">
+                        </div>
+                        <button type="button" class="btn btn-secundary">Calcular</button>
+                    </form>
+                    <div class="valorFrete">
+                        <p><b>Sedex: </b>R$ 79,90 </p>
+                        <p><b>PAC: </b>R$ 39,95</p>
+                    </div>
+                </div>
+                <div class="group-button-purchase">
+                    <button type="button" class="btn btn-secundary"><i class="material-icons">add_shopping_cart</i>Adicionar no carrinho</button>
+                    <button type="button" class="btn btn-primaty">Comprar</button>
+                </div>
+            </div>
+        </div>
+        <div class="conteiner-details">
+            <div class="card-content-details">
+                <h2>Detalhes</h2>
+                <div>
+                    <div>
+                        <p><b>Autor: </b>George R. R. Martin</p>
+                        <p><b>Editora: </b>LeYa</p>
+                        <p><b>Publicado: </b>25/03/2019</p>
+                    </div>
+                    <div>
+                        <p><b>Páginas: </b>600</p>
+                        <p><b>Idioma: </b>pt-BR</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content-description">
+                <h2>Descrição</h2>
+                <p class="details-text">"Quando Eddard Stark, lorde do castelo de Winterfell, recebe a visita do velho amigo, o rei Robert Baratheon, está longe de adivinhar que a sua vida, e a da sua família, está prestes a entrar numa espiral de tragédia, conspiração e morte. Durante a estadia, o rei convida Eddard a mudar-se para a corte e a assumir a prestigiada posição de Mão do Rei. Este aceita, mas apenas porque desconfia que o anterior detentor desse título foi envenenado pela própria rainha - uma cruel manipuladora do clã Lannister. Assim, perto do rei, Eddard tem esperança de o proteger da rainha. Mas ter os Lannister como inimigos é fatal - a ambição dessa família não tem limites e o rei corre um perigo muito maior do que Eddard temia. Sozinho na corte, Eddard também se apercebe que a sua vida nada vale. E até a sua família, longe no norte, pode estar em perigo."</p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <h5>eLivraria</h5>
+                <p>Página criada para aula de Programação para Internet I. IFSC Câmpus Tubarão - SC.</p>
+            </div>
+            <div>
+                <h5>Links</h5>
+                <ul>
+                    <li><a href="http://tubarao.ifsc.edu.br/">IFSC</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p><i class="material-icons">copyright</i> Rodrigo Carara Brolese - 2019</p>
+        </div>
+    </footer>
+    <script src="js/genericFunction.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/detalhesLivro.js"></script>
+</body>
+</html>
