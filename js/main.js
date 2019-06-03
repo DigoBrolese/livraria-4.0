@@ -95,17 +95,17 @@ function makeBooksRow(books, title) {
     if (books.totalItems != '0') {
         books.items.forEach(function (e) {
             let book = e.volumeInfo;
-            cardConteiner.innerHTML +=  '<div class="card"> ' +
-                                            '<div class="card-img"> ' +
-                                                '<img src="'+ ((book.imageLinks == undefined) ? 'img/no_cover_thumb.gif' : book.imageLinks.thumbnail) +'" alt="'+ book.title +'" class="capaBook" data-isbn="'+ (book.industryIdentifiers[0]).identifier +'"> ' +
-                                                '<span>R$ 79,90</span> ' +
-                                                '<button type="button"><i class="material-icons">add_shopping_cart</i></button> ' +
-                                            '</div> ' +
-                                            '<div class="card-content"> ' +
-                                                '<p class="shrinkText">'+ book.title +'</p> ' +
-                                                '<p>'+ book.authors[0] +'</p> ' +
-                                            '</div> ' +
-                                        '</div>';
+                cardConteiner.innerHTML +=  '<div class="card"> ' +
+                                                '<div class="card-img"> ' +
+                                                    '<img src="'+ ((book.imageLinks == undefined) ? 'img/no_cover_thumb.gif' : book.imageLinks.thumbnail) +'" alt="'+ ((book.title != undefined) ? book.title : "") +'" class="capaBook" data-isbn="'+ ((book.industryIdentifiers != undefined) ? (book.industryIdentifiers[0]).identifier : "") +'"> ' +
+                                                    '<span>R$ 79,90</span> ' +
+                                                    '<button type="button"><i class="material-icons">add_shopping_cart</i></button> ' +
+                                                '</div> ' +
+                                                '<div class="card-content"> ' +
+                                                    '<p class="shrinkText">'+ ((book.title != undefined) ? book.title : "") +'</p> ' +
+                                                    '<p>'+ ((book.authors != undefined) ? book.authors[0] : "") +'</p> ' +
+                                                '</div> ' +
+                                            '</div>';
         });
     } else {
         alert("Ocorreu um erro");
@@ -119,6 +119,7 @@ function makeBooksRow(books, title) {
 }
 
 function eventsMakeBooksRow() {
+    console.log("dasdasd");
     document.querySelectorAll('.capaBook').forEach(elem => elem.addEventListener('click', function (e) {
         window.location = domain + "/detalhesLivro.html?cod=" + e.target.dataset.isbn;
     }));

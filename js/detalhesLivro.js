@@ -38,8 +38,8 @@ function makeBook(book) {
     let conteiner = document.querySelector('.conteiner');
     conteiner.innerHTML +=
     '<div class="card-head-details"> ' +
-        '<h2>'+ bookInfo.title +'</h2> ' +
-        '<h3>'+ bookInfo.authors.join(', ') +'</h3> ' +
+        '<h2>'+ ((bookInfo.title != undefined) ? bookInfo.title : "Não encontrado") +'</h2> ' +
+        '<h3>'+ ((bookInfo.authors != undefined) ? bookInfo.authors.join(', ') : "Não encontrado") +'</h3> ' +
     '</div> ' +
     '<div class="conteiner-principal"> ' +
         '<div class="card-conteiner"> ' +
@@ -80,35 +80,37 @@ function makeBook(book) {
             '<h2>Detalhes</h2> ' +
             '<div> ' +
                 '<div> ' +
-                    '<p><b>Autor: </b>'+ bookInfo.authors.join(', ') +'</p>' +
-                    '<p><b>Editora: </b>'+ bookInfo.publisher +'</p>' +
-                    '<p><b>Publicado: </b>'+ (bookInfo.publishedDate).split('-').reverse().join('/') +'</p> ' +
+                    '<p><b>Autor: </b>'+ ((bookInfo.authors != undefined) ? bookInfo.authors.join(', ') : "Não encontrado") +'</p>' +
+                    '<p><b>Editora: </b>'+ ((bookInfo.publisher != undefined) ? bookInfo.publisher : "Não encontrado") +'</p>' +
+                    '<p><b>Publicado: </b>'+ ((bookInfo.publishedDate != undefined) ? (bookInfo.publishedDate).split('-').reverse().join('/') : "Não encontrado") +'</p> ' +
                 '</div> ' +
                 '<div> ' +
-                    '<p><b>Páginas: </b>'+ bookInfo.pageCount +'</p>' +
-                    '<p><b>Idioma: </b>'+ (bookInfo.language).toUpperCase() +'</p>' +
+                    '<p><b>Páginas: </b>'+ ((bookInfo.pageCount != undefined) ? bookInfo.pageCount : "Não encontrado")  +'</p>' +
+                    '<p><b>Idioma: </b>'+ ((bookInfo.language != undefined) ? (bookInfo.language).toUpperCase() : "Não encontrado") +'</p>' +
                 '</div>' +
             '</div>' +
         '</div> ' +
         '<div class="card-content-description">' +
             '<h2>Descrição</h2>' +
-                '<p class="details-text">'+ bookInfo.description +'</p>' +
+                '<p class="details-text">'+ ((bookInfo.description != undefined) ? (bookInfo.description).toUpperCase() : "Sem descrição") +'</p>' +
         '</div>' +
     '</div>';
 }
 
 function events(){
-    document.querySelector('.btn-calcular-frete').addEventListener('click', function (e) {
-       let cepDestino = document.querySelector('#campoCalcularFrete').value;
-       let precoLivro = document.querySelector('#precoLivro').value;
-       calculaFrete();
-    });
+    if (document.querySelector('.btn-calcular-frete') != null) {
+        document.querySelector('.btn-calcular-frete').addEventListener('click', function (e) {
+           let cepDestino = document.querySelector('#campoCalcularFrete').value;
+           let precoLivro = document.querySelector('#precoLivro').value;
+           calculaFrete();
+        });
 
 
-    function calculaFrete() {
-        document.querySelector('.valorFrete').innerHTML = ""
-                                                        +"<p><b>Sedex: </b>R$ 79,90 </p>"
-                                                        +"<p><b>PAC: </b>R$ 39,95</p>";
+        function calculaFrete() {
+            document.querySelector('.valorFrete').innerHTML = ""
+                                                            +"<p><b>Sedex: </b>R$ 79,90 </p>"
+                                                            +"<p><b>PAC: </b>R$ 39,95</p>";
+        }
     }
 
 }
