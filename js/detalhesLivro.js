@@ -100,16 +100,33 @@ function makeBook(book) {
 function events(){
     if (document.querySelector('.btn-calcular-frete') != null) {
         document.querySelector('.btn-calcular-frete').addEventListener('click', function (e) {
-           let cepDestino = document.querySelector('#campoCalcularFrete').value;
-           let precoLivro = document.querySelector('#precoLivro').value;
-           calculaFrete();
+            let cepDestino = document.querySelector('#campoCalcularFrete').value;
+            let precoLivro = document.querySelector('#precoLivro').value;
+            calculaFrete(41106, cepDestino, precoLivro, 'PAC');
+            calculaFrete(40010, cepDestino, precoLivro, 'Sedex');
         });
 
 
-        function calculaFrete() {
-            document.querySelector('.valorFrete').innerHTML = ""
-                                                            +"<p><b>Sedex: </b>R$ 79,90 </p>"
-                                                            +"<p><b>PAC: </b>R$ 39,95</p>";
+
+
+
+        function calculaFrete(codServico, cepDestivo, precoLivor, type) {
+            let url = "https://www.chsweb.com.br/apicorreios/frete.php?sCepOrigem=88750000&sCepDestino="+ cepDestivo +"&nVlValorDeclarado="+ precoLivor +"&nCdServico=" + codServico;
+
+            let ajax = new XMLHttpRequest();
+
+            ajax.addEventListener('load', function () {
+                addValue(JSON.parse(this.responseText).results, type);
+            });
+            ajax.open("GET", url);
+            ajax.send();
+        }
+
+        function addValue(values, type) {
+            document.querySelector('.valorFrete').innerHTML += ""
+                                                            +"<p><b>"+ type +": </b>R$ "+ values.cServico.Valor +" </p>";
+                                                            // +"<p><b>PAC: </b>R$ 39,95</p>";
+
         }
     }
 
