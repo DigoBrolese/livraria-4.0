@@ -62,7 +62,7 @@ window.addEventListener('load', function () {
             let url = "https://www.googleapis.com/books/v1/volumes?q=";
 
             // Cria campo de Ficção
-            let query = "subject:Fiction&langRestrict=pt";
+            let query = "subject:Fiction&langRestrict=pt&maxResults=40";
             ajax.addEventListener('load', function(){
                 let livrosFiccao = JSON.parse(this.responseText);
                 makeBooksRow(livrosFiccao, 'Ficção');
