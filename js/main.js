@@ -108,7 +108,6 @@ function makeBooksRow(books, title) {
                                             '</div>';
         });
     } else {
-        alert("Ocorreu um erro");
         cardConteiner.innerHTML += '<div class="card-nenhum-livro">' +
                                         '<p>Nenhum livro encontrado</p>' +
                                     '</div>' +
@@ -119,7 +118,6 @@ function makeBooksRow(books, title) {
 }
 
 function eventsMakeBooksRow() {
-    console.log("dasdasd");
     document.querySelectorAll('.capaBook').forEach(elem => elem.addEventListener('click', function (e) {
         window.location = domain + "/detalhesLivro.html?cod=" + e.target.dataset.isbn;
     }));

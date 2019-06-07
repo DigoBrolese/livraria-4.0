@@ -102,12 +102,10 @@ function events(){
         document.querySelector('.btn-calcular-frete').addEventListener('click', function (e) {
             let cepDestino = document.querySelector('#campoCalcularFrete').value;
             let precoLivro = document.querySelector('#precoLivro').value;
+            document.querySelector('.valorFrete').innerHTML = "  ";
             calculaFrete(41106, cepDestino, precoLivro, 'PAC');
             calculaFrete(40010, cepDestino, precoLivro, 'Sedex');
         });
-
-
-
 
 
         function calculaFrete(codServico, cepDestivo, precoLivor, type) {
