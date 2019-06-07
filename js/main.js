@@ -5,7 +5,12 @@ domain = domainFull[0] + "//" + domainFull[2] + "/"+ domainFull[3];
 if (!isVisible(document.querySelector('#searchInput'))) {
     let searchInput = document.querySelector('#searchInput');
     document.querySelector('.searchClick').addEventListener('click', function (e) {
-        searchInput.style.display = isVisible(searchInput) ? 'none' : 'block';
+        if (isVisible(searchInput)) {
+            searchInput.style.display = 'none';
+        } else {
+            searchInput.style.display = 'block';
+            searchInput.focus();
+        }
     });
 }
 
